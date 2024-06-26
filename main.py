@@ -1,3 +1,6 @@
+# Import modules
+from flyweight import Flyweight
+
 # Import libraries
 import tkinter as tk
 
@@ -11,7 +14,10 @@ class App(tk.Tk):
         self.__configure()
 
         # Add the add_frame function
-        self.__add_frame()
+        self.__add_frames()
+
+        # Add the add_labels function
+        self.__add_labels()
 
         # Add the run function
         self.run()
@@ -19,11 +25,28 @@ class App(tk.Tk):
     # Make a function that configures the window
     def __configure(self) -> None:
         self.title("Todo Application")
+        self.geometry("500x500")
 
-    # Make a function that contains the frames
+    # Function that adds frames 
     def __add_frames(self) -> None:
-        pass
+        frame_configuration = [
+            {"name": "self.main_frame", "root": self}
+        ]
 
-    # Make a function to run the app
+        for config in frame_configuration:
+            Flyweight.get_frame(config["name"], config["root"])
+
+    # Function that adds labels
+    def __add_labels(self) -> None:
+
+        label_configuration = [
+            {"name": "label1", "text": "Hello World"},
+            {"name": "label2", "text": "Hi World"},
+        ]
+
+        for config in label_configuration:
+            label = Flyweight.get_label(config["name"], config["text"], self.main_frame)
+
+    # Function that runs the app
     def run(self) -> None:
         self.mainloop()

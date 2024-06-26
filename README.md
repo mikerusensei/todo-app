@@ -1,4 +1,4 @@
-# Todo Application *Prototype Version*
+# Todo Application *[Prototype Version]*
 Behold! The prototype version of Todo Application made by `mikerusensei` with partnership of `Archie Productions`.
 This system gives insites on using tkinter library in python programming language. 
 It uses object-oriented programming *OOP* in its structure.
